@@ -134,7 +134,9 @@ def get_sub_tasks(task):
         sub_tasks = ['java-cs', 'cs-java']
     elif task == 'refine':
         sub_tasks = ['small', 'medium']
-    elif task in ['concode', 'defect', 'clone', 'multi_task']:
+    elif task == 'defect':
+        sub_tasks = ['c', 'python']
+    elif task in ['concode', 'clone', 'multi_task']:
         sub_tasks = ['none']
     return sub_tasks
 

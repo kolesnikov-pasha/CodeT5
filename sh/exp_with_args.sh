@@ -1,4 +1,4 @@
-WORKDIR="path_to_your_dir/CodeT5"
+WORKDIR="/Users/kolesnikovpavel/CodeT5"
 export PYTHONPATH=$WORKDIR
 
 TASK=${1}
@@ -72,7 +72,8 @@ if [[ ${TASK} == 'multi_task' ]]; then
   MULTI_TASK_AUG='--max_steps '${16}' --save_steps '${17}' --log_steps '${18}
 elif [[ ${TASK} == 'clone' ]]; then
   RUN_FN=${WORKDIR}/run_clone.py
-elif [[ ${TASK} == 'defect' ]] && [[ ${MODEL_TYPE} == 'roberta' ||  ${MODEL_TYPE} == 'bart' ]]; then
+elif [[ ${TASK} == 'defect' ]] && [[ ${MODEL_TYPE} == 'roberta' ||  ${MODEL_TYPE} == 'bart' || ${MODEL_TYPE} == '' ]]; then
+  echo "run_defect.py with ${MODEL_TYPE}"
   RUN_FN=${WORKDIR}/run_defect.py
 else
   RUN_FN=${WORKDIR}/run_gen.py

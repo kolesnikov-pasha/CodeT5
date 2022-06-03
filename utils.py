@@ -177,9 +177,9 @@ def get_filenames(data_root, task, sub_task, split=''):
         test_fn = '{}/test.json'.format(data_dir)
     elif task == 'summarize':
         data_dir = '{}/{}/{}'.format(data_root, task, sub_task)
-        train_fn = '{}/train.jsonl'.format(data_dir)
-        dev_fn = '{}/valid.jsonl'.format(data_dir)
-        test_fn = '{}/test.jsonl'.format(data_dir)
+        train_fn = '{}/train.c.jsonl'.format(data_dir)
+        dev_fn = '{}/valid.c.jsonl'.format(data_dir)
+        test_fn = '{}/test.c.jsonl'.format(data_dir)
     elif task == 'refine':
         data_dir = '{}/{}/{}'.format(data_root, task, sub_task)
         train_fn = '{}/train.buggy-fixed.buggy,{}/train.buggy-fixed.fixed'.format(data_dir, data_dir)
@@ -202,9 +202,9 @@ def get_filenames(data_root, task, sub_task, split=''):
         test_fn = '{}/test.txt'.format(data_dir)
     elif task == 'defect':
         data_dir = '{}/{}'.format(data_root, task)
-        train_fn = '{}/train.jsonl'.format(data_dir)
-        dev_fn = '{}/valid.jsonl'.format(data_dir)
-        test_fn = '{}/test.jsonl'.format(data_dir)
+        train_fn = '{}/train.{}.jsonl'.format(data_dir, sub_task)
+        dev_fn = '{}/valid.{}.jsonl'.format(data_dir, sub_task)
+        test_fn = '{}/test.{}.jsonl'.format(data_dir, sub_task)
     if split == 'train':
         return train_fn
     elif split == 'dev':
