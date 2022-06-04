@@ -1,4 +1,4 @@
-WORKDIR="/Users/kolesnikovpavel/CodeT5"
+WORKDIR="."
 export PYTHONPATH=$WORKDIR
 
 TASK=${1}
