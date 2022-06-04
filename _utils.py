@@ -263,7 +263,7 @@ def read_defect_examples(filename, data_num):
             line = line.strip()
             js = json.loads(line)
 
-            code = ' '.join(js['func'].split())
+            code = js['func']
             examples.append(
                 Example(
                     idx=js['idx'],
