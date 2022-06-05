@@ -78,7 +78,7 @@ def convert_defect_examples_to_features(item):
         source_str = "{}: {}".format(args.task, example.source)
     else:
         source_str = example.source
-    code = tokenizer.encode(source_str, max_length=args.max_source_length, padding='max_length')
+    code = tokenizer.encode(source_str, max_length=args.max_source_length, padding='max_length', truncation=True)
     return DefectInputFeatures(example_index, code, example.target)
 
 
@@ -263,7 +263,7 @@ def read_defect_examples(filename, data_num):
             line = line.strip()
             js = json.loads(line)
 
-            code = js['func']
+            code = ' '.join(js['func'].split())
             examples.append(
                 Example(
                     idx=js['idx'],
