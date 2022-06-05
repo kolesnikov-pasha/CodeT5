@@ -78,7 +78,7 @@ def convert_defect_examples_to_features(item):
         source_str = "{}: {}".format(args.task, example.source)
     else:
         source_str = example.source
-    code = tokenizer.encode(source_str, max_length=args.max_source_length, padding='max_length', truncation=True)
+    code = tokenizer.encode(source_str, max_length=args.max_source_length, padding='max_length')
     return DefectInputFeatures(example_index, code, example.target)
 
 
